@@ -52,6 +52,7 @@ export const connectToSocket = (server) => {
                     messages[matchingRoom] = []
                 }
                 messages[matchingRoom].push({ "sender": sender, 'data': data, 'socket-id-sender': socket.id })
+                
                 console.log("message", matchingRoom, ":", sender, data);
 
                 connections[matchingRoom].forEach((elem) => {
