@@ -68,7 +68,6 @@ export const AuthProvider = ({ children }) => {
         meetingCode: meetingCode
       });
       console.log(request);
-      
       return request;
     } catch (err) {
         throw err;

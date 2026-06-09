@@ -11,7 +11,7 @@ import { AuthContext } from '../context/AuthContext'
 function Home() {
   let navigate = useNavigate()
   const [meetingCode, setMeetingCode] = useState("")
-  const {addToHistory} = useContext(AuthContext);
+  const { addToHistory } = useContext(AuthContext);
 
   let handleJoinVideoCall = async () => {
     await addToHistory(meetingCode)
@@ -27,7 +27,7 @@ function Home() {
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>
-          <IconButton>
+          <IconButton onClick={() => navigate("/history")}>
             <RestoreIcon />
           </IconButton>
           <p>History</p>
@@ -42,7 +42,7 @@ function Home() {
         <div className="leftPanel">
           <div>
             <h2>Providing Quality Video Call Just Like Quality Education</h2>
-            <div style={{display:"flex", gap:"10px"}}>
+            <div style={{ display: "flex", gap: "10px" }}>
               <TextField onChange={e => setMeetingCode(e.target.value)} id='outlined-basic' label="Meeting Code" variant='outlined' />
               <Button onClick={handleJoinVideoCall} variant='contained'>Join</Button>
             </div>

@@ -63,12 +63,12 @@ export const getUserHistory = async(req,res) => {
 }
 
 export const addToHistory = async(req,res) => {
-    const { token, meeting_code} = req.body;
+    const { token, meetingCode} = req.body;
     try {
         const user = await User.findOne({token: token})
         const newMeeting = new Meeting({
             user_id: user.username,
-            meetingCode: meeting_code
+            meetingCode: meetingCode
         })
         await newMeeting.save();
         res.status(httpStatus.CREATED).json({message: `Added code to history`})
