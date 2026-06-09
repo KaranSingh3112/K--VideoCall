@@ -1,9 +1,10 @@
-import { Route, Router, Routes, useNavigate } from "react-router"
+import { Route, Router, Routes } from "react-router-dom"
 import "./App.css"
 import LandingPage from "./pages/LandingPage"
 import Authentication from "./pages/authentication"
 import { AuthProvider } from "./context/AuthContext"
 import VedioMeet from "./pages/VedioMeet"
+import Home from "./pages/Home"
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           {/* <Route path="/home" element={} /> */}
           <Route path="/" element={<LandingPage />} />
           <Route path="/auth" element={<Authentication />} />
-          <Route path="/home" element={<Authentication />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/:url" element={<VedioMeet />} />
         </Routes>
       </AuthProvider>

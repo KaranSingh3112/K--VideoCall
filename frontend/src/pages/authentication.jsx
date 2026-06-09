@@ -22,9 +22,9 @@ import Snackbar from '@mui/material/Snackbar';
 const defaultTheme = createTheme();
 
 export default function SignInSide() {
-  const [username, setUsername] = React.useState("")
-  const [password, setPassword] = React.useState("")
-  const [name, setName] = React.useState("")
+  const [username, setUsername] = React.useState()
+  const [password, setPassword] = React.useState()
+  const [name, setName] = React.useState()
   const [error, setError] = React.useState()
   const [message, setMessage] = React.useState()
   const [formState, setFormState] = React.useState(0)
@@ -35,23 +35,23 @@ export default function SignInSide() {
     try {
       if (formState === 0) {
         let result = await handleLogin(username, password)
-        console.log(result);
-        setMessage(result);
         setOpen(true)
       }
       if (formState === 1) {
         setError("")
         let result = await handleRegister(name, username, password);
         console.log(result);
+        setUsername("");
         setMessage(result);
-        setOpen(true)
+        setOpen(true);
+        setError("")
         setFormState(0)
         setPassword("")
-        setUsername("")
       }
-    } catch (error) {
-      let message = (error?.response?.data?.message || error.message || "Something went wrong!!!")
-      setError(message)
+    } catch (err) {
+        console.log(err);
+        let message = (err.response.data.message);
+        setError(message);
     }
   }
 
@@ -65,7 +65,7 @@ export default function SignInSide() {
           sm={4}
           md={7}
           sx={{
-            backgroundImage: 'url(https://unsplash.com/photos/a-man-sitting-in-a-chair-looking-at-his-cell-phone-0Nrq6UvFpI8)',
+            backgroundImage: 'url(https://source.unsplash.com/random?wallpapers)',
             backgroundRepeat: 'no-repeat',
             backgroundColor: (t) =>
               t.palette.mode === 'light' ? t.palette.grey[50] : t.palette.grey[900],
@@ -88,10 +88,10 @@ export default function SignInSide() {
             </Avatar>
 
             <div>
-              <Button variant={formState === 0 ? "contained" : ""} onClick={() => setFormState(0)}>
+              <Button variant={formState === 0 ? "contained" : ""} onClick={() => {setFormState(0)}}>
                 Sign In
               </Button>
-              <Button variant={formState === 1 ? "contained" : ""} onClick={() => setFormState(1)}>
+              <Button variant={formState === 1 ? "contained" : ""} onClick={() => {setFormState(1)}}>
                 Sign up
               </Button>
             </div>
@@ -106,7 +106,7 @@ export default function SignInSide() {
                     fullWidth
                     id="fullname"
                     label="Full Name"
-                    name="fullname"
+                    name="username"
                     value={name}
                     autoComplete="username"
                     autoFocus
