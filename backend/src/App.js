@@ -20,7 +20,6 @@ app.use("/api/v1/users", userRoutes);
 const start = async () => {
     const connectionDb = await mongoose.connect("mongodb+srv://karansingh311206_db_user:eOusVBGB9qB7o26X@cluster0.vo3rbo2.mongodb.net/");
     console.log(`MONGO Connected DB Host: ${connectionDb.connection.host}`);
-    
     server.listen(app.get("port"), () => {
         console.log("LISTENING ON PORT 8000");  
     })
