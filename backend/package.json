@@ -4,9 +4,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon src/app.js",
-    "start": "node src/app.js",
-    "prod": "pm2 src/app.js"
+    "dev": "nodemon src/App.js",
+    "start": "node src/App.js",
+    "prod": "pm2 src/App.js"
   },
   "author": "Karan",
   "license": "ISC",
