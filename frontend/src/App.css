@@ -56,3 +56,44 @@
     height: 70vh;
     width: auto;
 }
+
+/* History page container */
+.historyContainer{
+    padding: 16px;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Responsive tweaks */
+@media (max-width: 900px) {
+    .landingPageMainContainer {
+        flex-direction: column-reverse;
+        padding-inline: 1.2rem;
+        height: auto;
+        gap: 20px;
+    }
+    .landingPageMainContainer > div:nth-child(1){
+        font-size: 1.4rem;
+    }
+    .landingPageMainContainer > div:nth-child(2) img{
+        height: 40vh;
+    }
+    .landingPageContainer nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    .landingPageContainer nav .navlist {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .landingPageMainContainer > div:nth-child(1) div[role='button'] a {
+        font-size: 1.1rem;
+    }
+}

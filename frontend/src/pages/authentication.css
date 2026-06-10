@@ -1,0 +1,52 @@
+/* Styles for Authentication page */
+.auth-paper {
+  margin: 56px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 32px 24px;
+  max-width: 420px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auth-avatar {
+  margin: 8px;
+  background-color: #1976d2;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-toggle {
+  margin: 12px 0 18px 0;
+  display: flex;
+  gap: 10px;
+}
+
+.auth-toggle-btn {
+  text-transform: none;
+}
+
+.auth-form {
+  width: 100%;
+}
+
+.auth-form .MuiTextField-root {
+  background: transparent;
+}
+
+.auth-error {
+  color: #d32f2f;
+  min-height: 20px;
+  margin: 8px 0 0 0;
+}
+
+@media (max-width: 600px) {
+  .auth-paper {
+    padding: 20px 16px;
+    margin: 24px 12px;
+  }
+}

@@ -23,7 +23,7 @@ function Home() {
 
       <div className="navBar">
         <div style={{ display: "flex", alignItems: "center" }}>
-          <h2>K VideoCall</h2>
+          <h2 onClick={()=>navigate("/")} style={{cursor: "pointer"}}>K VideoCall</h2>
         </div>
 
         <div style={{ display: "flex", alignItems: "center" }}>

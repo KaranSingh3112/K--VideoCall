@@ -38,29 +38,33 @@ export default function History() {
     }
 
     return (
-        <div>
-            <IconButton onClick={() => navigate("/home")}>
-                <HomeIcon />
-            </IconButton>
+        <div className="historyContainer">
+            <div style={{display:'flex', alignItems:'center', gap:8}}>
+                <IconButton onClick={() => navigate("/home")}>
+                    <HomeIcon />
+                </IconButton>
+                <h2>Meeting History</h2>
+            </div>
             {
+                meetings.length !== 0 ?
                 meetings.map((e, i) => {
                     return (
-                        <>
+                        <Card key={i} variant="outlined">
+                            <CardContent>
+                                <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+                                    Code: {e.meetingCode}
+                                </Typography>
+                                <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
+                                    Date: {formatDate(e.date)}
+                                </Typography>
 
-                            <Card key={i} variant="outlined">
-                                <CardContent>
-                                    <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-                                        Code: {e.meetingCode}
-                                    </Typography>
-                                    <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-                                        Date: {formatDate(e.date)}
-                                    </Typography>
-
-                                </CardContent>
-                            </Card>
-                        </>
+                            </CardContent>
+                        </Card>
                     )
-                })
+                }) : 
+                <>
+                    <h3>No history</h3>
+                </>
             }
         </div>
     )
